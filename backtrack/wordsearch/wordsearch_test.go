@@ -19,3 +19,7 @@ func TestFindFirstWord(t *testing.T) {
 func TestExisting(t *testing.T) {
 	assert.True(t, exist([][]byte{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "ABCCED"))
 }
+
+func TestExisting2(t *testing.T) {
+	assert.True(t, exist([][]byte{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "SEE"))
+}
