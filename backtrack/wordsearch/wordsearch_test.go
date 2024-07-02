@@ -23,3 +23,9 @@ func TestExisting(t *testing.T) {
 func TestExisting2(t *testing.T) {
 	assert.True(t, exist([][]byte{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "SEE"))
 }
+
+func TestFalseByRepeating(t *testing.T) {
+
+	assert.False(t, exist([][]byte{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "ABCB"))
+
+}

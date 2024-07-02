@@ -34,8 +34,17 @@ func dfs(board [][]byte, target string, currentColumn int, currentRow int, index
 	if arePointersOutOfBounds(currentRow, currentColumn, columns, rows) || !isCurrentPositionMatch(board[currentColumn][currentRow], target[index]) {
 		return false
 	}
+	// add a little asterisk so we cannot return to the previous value
 
-	return (dfs(board, target, currentColumn+1, currentRow, index+1) || dfs(board, target, currentColumn-1, currentRow, index+1) || dfs(board, target, currentColumn, currentRow+1, index+1) || dfs(board, target, currentColumn, currentRow-1, index+1))
+	temp := board[currentColumn][currentRow]
+
+	board[currentColumn][currentRow] = '*'
+
+	ans := dfs(board, target, currentColumn+1, currentRow, index+1) || dfs(board, target, currentColumn-1, currentRow, index+1) || dfs(board, target, currentColumn, currentRow+1, index+1) || dfs(board, target, currentColumn, currentRow-1, index+1)
+
+	board[currentColumn][currentRow] = temp
+
+	return ans
 
 }
 
