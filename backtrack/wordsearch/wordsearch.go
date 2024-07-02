@@ -23,7 +23,7 @@ func exist(board [][]byte, word string) bool {
 	return false
 }
 
-func dfs(board [][]byte, target string, currentRow int, j int, index int) bool {
+func dfs(board [][]byte, target string, currentColumn int, currentRow int, index int) bool {
 	n := len(board)
 	m := len(board[0])
 
@@ -33,19 +33,19 @@ func dfs(board [][]byte, target string, currentRow int, j int, index int) bool {
 
 	// out of bounds, out of luck
 
-	if currentRow < 0 || currentRow >= n {
+	if currentColumn < 0 || currentColumn >= n {
 		return false
 	}
 
-	if j < 0 || j >= m {
+	if currentRow < 0 || currentRow >= m {
 		return false
 	}
 
 	// if they are not the same, bad luck
-	if board[currentRow][j] != target[index] {
+	if board[currentColumn][currentRow] != target[index] {
 		return false
 	}
 
-	return (dfs(board, target, currentRow+1, j, index+1) || dfs(board, target, currentRow-1, j, index+1) || dfs(board, target, currentRow, j+1, index+1) || dfs(board, target, currentRow, j-1, index+1))
+	return (dfs(board, target, currentColumn+1, currentRow, index+1) || dfs(board, target, currentColumn-1, currentRow, index+1) || dfs(board, target, currentColumn, currentRow+1, index+1) || dfs(board, target, currentColumn, currentRow-1, index+1))
 
 }
