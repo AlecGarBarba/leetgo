@@ -11,10 +11,10 @@ func exist(board [][]byte, word string) bool {
 		return false
 	}
 
-	for i := 0; i < len(board); i++ {
+	for col := 0; col < len(board); col++ {
 		for j := 0; j < len(board[0]); j++ {
-			if word[0] == board[i][j] {
-				return dfs(board, word, i, j, 0)
+			if word[0] == board[col][j] {
+				return dfs(board, word, col, j, 0)
 			}
 		}
 
