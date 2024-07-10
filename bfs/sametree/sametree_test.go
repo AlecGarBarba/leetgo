@@ -26,6 +26,18 @@ func TestOneIsNil(t *testing.T) {
 
 }
 
+func TestSameStructureTreeOneLevel(t *testing.T) {
+	// input: [0,-5], [0,-8]
+	/* Trees Structure:
+	 *    0        0
+	 *   /        /
+	 * -5      -8
+	 */
+	left := &TreeNode{Val: 0, Left: &TreeNode{Val: -5}}
+	right := &TreeNode{Val: 0, Left: &TreeNode{Val: -8}}
+	assert.False(t, IsSameTree(left, right))
+}
+
 func TestNullTrees(t *testing.T) {
 	assert.True(t, IsSameTree(nil, nil))
 }
