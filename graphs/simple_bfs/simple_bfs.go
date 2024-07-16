@@ -15,6 +15,10 @@ func traverse(adjList [][]int, startNode int) []int {
 		q = q[1:]
 
 		res = append(res, curr)
+		/*
+		The following loop is the key to the BFS algorithm. 
+		It iterates over the neighbors of the current node and adds them to the queue if they haven't been visited yet.
+		*/
 		for _, neighbor := range adjList[curr] {
 			if !visited[neighbor] {
 				visited[neighbor] = true
