@@ -10,12 +10,9 @@ func validPath(n int, edges [][]int, source int, destination int) bool {
 		return true
 	}
 
-	adjList := [][]int{}
+	adjList := make([][]int, n)
 
 	/** initialize the adjacency list */
-	for i := 0; i < n; i++ {
-		adjList = append(adjList, []int{})
-	}
 
 	/** populate the adjacency list */
 	for _, edge := range edges {
