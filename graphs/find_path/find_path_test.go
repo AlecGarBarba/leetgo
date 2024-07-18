@@ -11,7 +11,7 @@ func TestEmptyGraph(t *testing.T) {
 	n := 0
 	edges := [][]int{}
 	source := 0
-	destination := 0
+	destination := 1
 	expected := false
 	result := validPath(n, edges, source, destination)
 	assert.Equal(t, expected, result, "Empty graph should return false as there are no edges")
@@ -29,8 +29,7 @@ func TestSingleEdgeGraph(t *testing.T) {
 }
 
 func TestDoubleEdgeGraphDisconnected(t *testing.T) {
-	/** given a graph with a single edge */
-	n := 2
+	n := 4
 	edges := [][]int{{0, 1}, {2, 3}}
 	source := 2
 	destination := 0
