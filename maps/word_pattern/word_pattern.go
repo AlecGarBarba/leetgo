@@ -3,7 +3,7 @@ package wordpattern
 import "strings"
 
 /*
-NOTE: we can make it more readble by using runes instead of stirngs
+NOTE: we can make it more readable by using runes instead of stirngs
 and by refactoring the if statements. But I'm looking for clarity in this example
 */
 func wordPattern(pattern string, s string) bool {
